@@ -46,10 +46,20 @@ public class SimpleList {
 	 */
 	
 	public void add(int parameter) {
-		//if integer is less than length of list, increment
-		if(count < list.length) { 
-			count++;
+		//if counter is equal to length of list, increase size of list by 50%
+		if(count == list.length) { 
+			//determine size of new array, 50% larger than original array
+			int newSize = (int) (list.length * 1.5);
+			//create new array
+			int[] newList = new int[newSize];
+			//copy all elements from existing array to new array
+			for (int i = 0; i < list.length; i++) {
+				newList[i] = list[i];
+			}
+			//make list point to new array
+			list = newList;
 		}
+		count++;
 		//move other integers in the list
 		for (int index = list.length - 1; index > 0; index--) {
 			list[index] = list[index - 1];
