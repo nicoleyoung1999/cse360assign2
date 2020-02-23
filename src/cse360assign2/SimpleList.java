@@ -26,6 +26,7 @@ package cse360assign2;
 public class SimpleList {
 	private int[] list; 
 	private int count; 
+	private int size;
 	 
 	/**
 	 * Create an array to hold 10 integers and set count to 0
@@ -73,6 +74,7 @@ public class SimpleList {
 	 * Find parameter in the list, then remove it. The other values in the
 	 * list may need to be moved down. Adjust the count as needed.
 	 * @param foundInteger
+	 *  The list cannot be reduced to less than 1 entry
 	 */
 	
 	public void remove(int foundInteger) {
@@ -85,6 +87,24 @@ public class SimpleList {
 				//move down other values in list
 				for (int newList = index; newList < list.length-1; newList++) { 
 					list[newList] = list[newList + 1];
+				}
+				//determine utilization
+				double utilization = 1.0 * count / list.length;
+				if (utilization < 0.75) {
+					//determine size of new array, 20% smaller than original array
+					int newSize = (int) (list.length * .8);
+					//size must be at least 1;
+					if (newSize < 1) {
+						newSize = 1;
+					}
+					//create new array
+					int[] newList = new int[newSize];
+					//copy all elements from existing array to new array
+					for (int i = 0; i < newList.length; i++) {
+						newList[i] = list[i];
+					}
+					//make list point to new array
+					list = newList;
 				}
 				//return; //if remove should only remove first occurence 
 				index--; //if remove should remove all occurences 
@@ -133,5 +153,58 @@ public class SimpleList {
 			if (newList == element) return index;
 		}
 		return -1; //parameter is not in list
+	}
+	
+	
+	/**append the parameter to the end of the list.
+	 * If the list was full, then increase the size by 50% so there will be room.  
+	 * Increment the count.
+	 * 
+	 * @param parameter
+	 * @return parameter
+	 */
+	public int append(int parameterEnd) {
+		//if counter is equal to length of list, increase size of list by 50%
+				if(count == list.length) { 
+					//determine size of new array, 50% larger than original array
+					int newSize = (int) (list.length * 1.5);
+					//create new array
+					int[] newList = new int[newSize];
+					//copy all elements from existing array to new array
+					for (int i = 0; i < list.length; i++) {
+						newList[i] = list[i];
+					}
+					//make list point to new array
+					list = newList;
+				}
+				count++;
+				//move other integers in the list
+				for (int index = list.length - 1; index > 0; index--) {
+					list[index] = list[index - 1];
+				}
+				//append parameter to end of list
+				list[list.length - 1] = parameterEnd;
+				
+				return parameterEnd;
+	}
+	
+	
+	// first (): int  Return the first element in the list.
+	//If there are no elements n the list, then return -1.
+	public int first() {
+		return 0;
+	}
+	
+	
+	//last (): int Return the last element in the list.  
+	//If there are no elements n the list, then return -1
+	public int last() {
+		return 0;
+	}
+	
+	
+	//size (): int  Return the current number of possible locations in the list
+	public int size() {
+		return size;
 	}
 }
