@@ -1,6 +1,10 @@
 /* Nicole Young
  * Class ID: 398
  * This assignment is designed to give practice with github
+ * https://github.com/nicoleyoung1999/cse360assign2/blob/master/src/cse360assign2/SimpleList.java
+ * username:nicoleyoung1999
+ * password: 5t@yY0ung
+ * Repository name: cse360assign2
  */
 
 //test comment
@@ -52,8 +56,8 @@ public class SimpleList {
 			// create new array
 			int[] newList = new int[newSize];
 			// copy all elements from existing array to new array
-			for (int i = 0; i < list.length; i++) {
-				newList[i] = list[i];
+			for (int index = 0; index < list.length; index++) {
+				newList[index] = list[index];
 			}
 			// make list point to new array
 			list = newList;
