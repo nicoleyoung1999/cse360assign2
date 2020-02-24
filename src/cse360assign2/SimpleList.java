@@ -93,8 +93,8 @@ public class SimpleList {
 				// determine utilization
 				double utilization = 1.0 * count / list.length;
 				if (utilization < 0.75) {
-					// determine size of new array, 20% smaller than original array
-					int newSize = (int) (list.length * .8);
+					// determine size of new array, 25% smaller than original array
+					int newSize = (int) (list.length * .75);
 					// size must be at least 1;
 					if (newSize < 1) {
 						newSize = 1;
@@ -102,8 +102,8 @@ public class SimpleList {
 					// create new array
 					int[] newList = new int[newSize];
 					// copy all elements from existing array to new array
-					for (int i = 0; i < newList.length; i++) {
-						newList[i] = list[i];
+					for (int increase = 0; increase < newList.length; increase++) {
+						newList[index] = list[index];
 					}
 					// make list point to new array
 					list = newList;
