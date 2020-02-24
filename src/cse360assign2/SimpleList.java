@@ -102,8 +102,8 @@ public class SimpleList {
 					// create new array
 					int[] newList = new int[newSize];
 					// copy all elements from existing array to new array
-					for (int increase = 0; increase < newList.length; increase++) {
-						newList[index] = list[index];
+					for (int indexArray = 0; indexArray < newList.length; indexArray++) {
+						newList[indexArray] = list[indexArray];
 					}
 					// make list point to new array
 					list = newList;
