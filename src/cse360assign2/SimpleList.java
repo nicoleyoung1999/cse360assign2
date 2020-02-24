@@ -1,6 +1,6 @@
 /* Nicole Young
  * Class ID: 398
- * This assignment is designed to give practice with Javadoc, creating unit tests and using Junit
+ * This assignment is designed to give practice with github
  */
 
 //test comment
@@ -170,8 +170,8 @@ public class SimpleList {
 			// create new array
 			int[] newList = new int[newSize];
 			// copy all elements from existing array to new array
-			for (int i = 0; i < list.length; i++) {
-				newList[i] = list[i];
+			for (int index = 0; index < list.length; index++) {
+				newList[index] = list[index];
 			}
 			// make list point to new array
 			list = newList;
@@ -183,23 +183,35 @@ public class SimpleList {
 
 	}
 
-	// first (): int Return the first element in the list.
-	// If there are no elements n the list, then return -1.
+	/**
+	 * return the first element in the list
+	 * if there are no elements in the list, return -1
+	 * @return list
+	 */
+
 	public int first() {
 		if (count == 0)
 			return -1;
 		return list[0];
 	}
 
-	// last (): int Return the last element in the list.
-	// If there are no elements n the list, then return -1
+	/**
+	 * Return the last element in the list.
+	 * If there are no elements n the list, then return -1
+	 * @return list
+	 */
+
 	public int last() {
 		if (count == 0)
 			return -1;
 		return list[count - 1];
 	}
 
-	// size (): int Return the current number of possible locations in the list
+	/**
+	 * Return the current number of possible locations in the list
+	 * @return count
+	 */
+	
 	public int size() {
 		return count;
 	}
